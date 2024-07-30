@@ -9,7 +9,7 @@ let conn;
 (async () => {
   try {
     conn = await mongoose.connect(MONGODB_URI);
-    console.log("connected", conn);
+    console.log("connected");
     // this is for errors after a connection has been established
 
     mongoose.connection.on("error", (err) => {
@@ -21,4 +21,4 @@ let conn;
   }
 })();
 
-module.exports = mongoose;
+module.exports = { conn };

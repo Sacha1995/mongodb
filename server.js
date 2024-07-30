@@ -4,7 +4,7 @@ const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json({ limit: "300kb" }));
+app.use(express.json());
 
 // Middleware example function
 const request = (req, res, next) => {
@@ -15,6 +15,9 @@ app.use(request);
 
 // Define routes
 app.use("/users", require("./mongo/routes/addUser"));
+app.use("/users", require("./mongo/routes/readUser"));
+app.use("/users", require("./mongo/routes/updateUser"));
+app.use("/users", require("./mongo/routes/deleteUser"));
 
 // Start the server
 const port = process.env.PORT || 6001;

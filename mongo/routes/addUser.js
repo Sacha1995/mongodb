@@ -1,19 +1,20 @@
 const express = require("express");
 const { User } = require("../models");
 const router = express.Router();
+const conn = require("../connection");
 
 router.post("/add", async (req, res) => {
-  console.log("you get here 2");
   const userData = req.body;
-  const userData2 = {
-    email: "r@r.r",
-    userName: "Sacha",
-    age: 29,
-    isHappy: true,
-  };
+  // const userData2 = {
+  //   email: "r@r.r",
+  //   userName: "Sacha",
+  //   age: 29,
+  //   isHappy: true,
+  // };
 
   try {
-    const user = new User(userData2);
+    console.log("try");
+    const user = new User(userData);
     const result = await user.save();
     return res.status(200).send({ status: 1, result: result });
   } catch (e) {
