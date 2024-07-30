@@ -14,7 +14,7 @@ const request = (req, res, next) => {
 app.use(request);
 
 // Define routes
-// app.use("/user", require("./routes/user"));
+app.use("/users", require("./mongo/routes/addUser"));
 
 // Start the server
 const port = process.env.PORT || 6001;
